@@ -1,0 +1,113 @@
+define(['pipAPI', 'https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/qualtrics/quiat9.js'], función(APIConstructor, iatExtension){
+    var API = nuevo APIConstructor();
+    var baseURL = 'https://baranan.github.io/minno-tasks/images/';
+    var posWords = API.shuffle([
+            'Amor', 'Alegría', 'Amigo', 'Placer',
+            'Adorar', 'Alegre', 'Amistad', 'Gozoso',
+            'Sonriente', 'Apreciar', 'Excelente', 'Contento',
+            'Alegre', 'Espectacular', 'Atractivo', 'Deleite',
+            'Emoción', 'Risa', 'Atractivo', 'Encantador',
+            'Fabuloso', 'Glorioso', 'Agradable', 'Hermoso',
+            'Fantástico', 'Feliz', 'Encantador', 'Fantástico',
+            'Celebrar', 'Disfrutar', 'Magnífico', 'Triunfar']);
+    var negWords = API.shuffle([
+            'Abuso', 'Dolor', 'Veneno', 'Tristeza',
+            'Dolor', 'Despreciar', 'Fracaso', 'Desagradable',
+            'Enojado', 'Detesto', 'Horrible', 'Negativo',
+            'Feo', 'Sucio', 'Asqueroso', 'Malvado',
+            'Podrido', 'Molesto', 'Desastre', 'Horrible',  
+            'Desprecio', 'Horrible', 'Disgusto', 'Odio',
+            'Humillar', 'Egoísta', 'Trágico', 'Molesto',
+            'Odio', 'Dañino', 'Repugnante', 'Asqueroso']);
+    
+    devolver iatExtension({
+        categoría1 : {
+            nombre: 'Gente gorda', //Aparecerá en los datos.
+            título : {
+                media : {word : 'Gente gorda'}, //Nombre de la categoría presentada en la tarea.
+                css : {color:'#31940F','font-size':'1.8em'}, //Estilo del título de la categoría.
+                altura: 4 //Se utiliza para posicionar el "O" en el bloque combinado.
+            },
+            stimulumMedia : [ //Contenido de estímulos como objetos multimedia de PIP
+                {imagen: '1_B.jpg'},
+                {imagen: '2_B.jpg'},
+                {imagen: '3_B.jpg'},
+				{imagen: '4_B.jpg'},
+                {imagen: '5_B.jpg'},                 
+				{imagen: '6_B.jpg'},
+                {imagen: '7_B.jpg'},
+                {imagen: '8_B.jpg'},
+                {imagen: '9_B.jpg'},
+                {imagen: '10_B.jpg'}     
+    	    ],
+    		//Estímulo CSS (estilo)
+    		estímuloCss: {color:'#31940F','font-size':'2.3em'}
+        },    
+        categoría2 : {
+            nombre: 'Personas delgadas', //Aparecerá en los datos.
+            título : {
+                media : {word : 'Personas delgadas'}, //Nombre de la categoría presentada en la tarea.
+                css : {color:'#31940F','font-size':'1.8em'}, //Estilo del título de la categoría.
+                altura: 4 //Se utiliza para posicionar el "O" en el bloque combinado.
+            },
+            stimulumMedia : [ //Contenido de estímulos como objetos multimedia de PIP
+                {imagen: '1_A.jpg'},
+                {imagen: '2_A.jpg'},
+                {imagen: '3_A.jpg'},
+				        {imagen: '4_A.jpg'},
+                {imagen: '5_A.jpg'},                 
+				        {imagen: '6_A.jpg'},
+                {imagen: '7_A.jpg'},
+                {imagen: '8_A.jpg'},
+				        {imagen: '9_A.jpg'},
+                {imagen: '10_A.jpg'}  
+            ],
+    		//Estímulo CSS (estilo)
+    		estímuloCss: {color:'#31940F','font-size':'2.3em'}
+        },
+		atributo1 :
+		{
+			nombre: 'Malas palabras',
+			título : {
+				medios de comunicación: {palabra: 'Malas palabras'},
+				css : {color:'#0000FF','tamaño de fuente':'1.8em'},
+				altura: 4 //Se utiliza para posicionar el "O" en el bloque combinado.
+			},
+			stimulumMedia : [ //Contenido de estímulos como objetos multimedia de PIP
+				{palabra: negWords[0]},
+				{palabra: negWords[1]},
+				{palabra: negWords[2]},
+				{palabra: negWords[3]},
+				{palabra: negWords[4]},
+				{palabra: negWords[5]},
+				{palabra: negWords[6]},
+				{palabra: negWords[7]}
+			],
+			//Estímulo CSS
+			estímuloCss: {color:'#0000FF','tamaño de fuente':'2.3em'}
+		},
+		atributo2 :
+		{
+			nombre: 'Buenas palabras',
+			título : {
+				medios: {palabra: 'Buenas palabras'},
+				css : {color:'#0000FF','tamaño de fuente':'1.8em'},
+				altura: 4 //Se utiliza para posicionar el "O" en el bloque combinado.
+			},
+			stimulumMedia : [ //Contenido de estímulos como objetos multimedia de PIP
+				{palabra: posWords[0]},
+				{palabra: posWords[1]},
+				{palabra: posWords[2]},
+				{palabra: posWords[3]},
+				{palabra: posWords[4]},
+				{palabra: posWords[5]},
+				{palabra: posWords[6]},
+				{palabra: posWords[7]}
+			],
+			//Estímulo CSS
+			estímuloCss: {color:'#0000FF','tamaño de fuente':'2.3em'}
+		},
+        base_url : {//¿Dónde están tus imágenes?
+            imagen: baseURL
+        }
+    });
